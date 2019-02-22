@@ -1,9 +1,16 @@
-# Debian / Ubuntu 16.04 MariaDB backup using mariabackup
-*Currently tested with Debian 8 (jessie)*
+# Debian / Ubuntu 18.04 MariaDB backup using mariabackup
+*Currently tested with Ubuntu 18.04*
 
 This repository contains a few scripts for automating backups with mariabackup (a fork of Percona Xtrabackup) by MariaDB.
 
 Please check and follow the instructions below. The instructions are taken from <a href="https://www.digitalocean.com/community/tutorials/how-to-configure-mysql-backups-with-percona-xtrabackup-on-ubuntu-16-04">here</a>
+
+## Install mariabackup
+
+```
+$ sudo apt install mariadb-backup
+```
+
 
 ## Create a MySQL User with Appropriate Privileges
 
@@ -135,16 +142,16 @@ The backup user will be able to access this file to get the proper credentials b
 
 ### Create a Backup Root Directory
 
-Next, create a directory for the backup content. We will use ```/backups/mysql``` as the base directory for our backups:
+Next, create a directory for the backup content. We will use ```/backup/mariadb``` as the base directory for our backups:
 
 ```
-$ sudo mkdir -p /backups/mysql
+$ sudo mkdir -p /backup/mariadb
 ```
 
-Next, assign ownership of the ```/backups/mysql``` directory to the backup user and group ownership to the mysql group:
+Next, assign ownership of the ```/backup/mariadb``` directory to the backup user and group ownership to the mysql group:
 
 ```
-$ sudo chown backup:mysql /backups/mysql
+$ sudo chown backup:mysql /backup/mariadb
 ```
 
 The ```backup``` user should now be able to write backup data to this location.
