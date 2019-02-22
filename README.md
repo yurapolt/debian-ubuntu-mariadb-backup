@@ -161,17 +161,17 @@ The ```backup``` user should now be able to write backup data to this location.
 You can download the scripts directly from GitHub by typing:
 
 ```
-$ cd /tmp
-$ curl -LO https://raw.githubusercontent.com/nullart/debian-ubuntu-mariadb-backup/master/backup-mysql.sh
-$ curl -LO https://raw.githubusercontent.com/nullart/debian-ubuntu-mariadb-backup/master/extract-mysql.sh
-$ curl -LO https://raw.githubusercontent.com/nullart/debian-ubuntu-mariadb-backup/master/prepare-mysql.sh
+$ git clone https://github.com/Nill-R/debian-ubuntu-mariadb-backup.git
 ```
 
-Be sure to inspect the scripts after downloading to make sure they were retrieved successfully and that you approve of the actions they will perform. If you are satisfied, mark the scripts as executable and then move them into the /usr/local/bin directory by typing:
+Be sure to inspect the scripts after downloading to make sure they were retrieved successfully and that you approve of the actions they will perform. If you are satisfied, mark the scripts as executable and then move them into the ```/usr/local/bin``` directory by typing:
 
 ```
-$ chmod +x /tmp/{backup,extract,prepare}-mysql.sh
-$ sudo mv /tmp/{backup,extract,prepare}-mysql.sh /usr/local/bin
+$ cd debian-ubuntu-mariadb-backup
+$ chmod +x ./{backup,extract,prepare}-mysql.sh
+$ sudo mv ./{backup,extract,prepare}-mysql.sh /usr/local/bin
+$ cd ..
+$ rm -rf debian-ubuntu-mariadb-backup
 ```
 
 ## Using the Backup and Restore Scripts
@@ -181,13 +181,6 @@ In order to make our backup and restore steps repeatable, we will script the ent
 * backup-mysql.sh: This script backs up the MySQL databases, encrypting and compressing the files in the process. It creates full and incremental backups and automatically organizes content by day. By default, the script maintains 3 days worth of backups.
 * extract-mysql.sh: This script decompresses and decrypts the backup files to create directories with the backed up content.
 * prepare-mysql.sh: This script "prepares" the back up directories by processing the files and applying logs. Any incremental backups are applied to the full backup. Once the prepare script finishes, the files are ready to be moved back to the data directory.
-
-Be sure to inspect the scripts after downloading to make sure they were retrieved successfully and that you approve of the actions they will perform. If you are satisfied, mark the scripts as executable and then move them into the ```/usr/local/bin``` directory by typing:
-
-```
-$ chmod +x /tmp/{backup,extract,prepare}-mysql.sh
-$ sudo mv /tmp/{backup,extract,prepare}-mysql.sh /usr/local/bin
-```
 
 ### The backup-mysql.sh Script
 
