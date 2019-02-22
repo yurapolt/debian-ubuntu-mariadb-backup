@@ -1,7 +1,7 @@
 # Debian / Ubuntu 18.04 MariaDB backup using mariabackup
 *Currently tested with Ubuntu 18.04*
 
-You can use <a href="https://gist.github.com/Nill-R/f5a1fbc0fefc8001ff684cfb3b6fdcc0">script for autoinstall this scripts</a>
+You can use <a href="https://gist.github.com/Nill-R/f5a1fbc0fefc8001ff684cfb3b6fdcc0">script</a> for autoinstall this scripts
 
 This repository contains a few scripts for automating backups with mariabackup (a fork of Percona Xtrabackup) by MariaDB.
 
