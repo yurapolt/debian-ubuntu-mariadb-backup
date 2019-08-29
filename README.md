@@ -1,5 +1,5 @@
 # Debian 9/ Ubuntu 16.04 and 18.04 MariaDB backup using mariabackup
-*Currently tested with Ubuntu 16.04 and 18.04*
+*Currently tested with Ubuntu 16.04 and MariaDB-10.1*
 
 You can use <a href="https://gist.github.com/Nill-R/f5a1fbc0fefc8001ff684cfb3b6fdcc0">script</a> for autoinstall this scripts
 
