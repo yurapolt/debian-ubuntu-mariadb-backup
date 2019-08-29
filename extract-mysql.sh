@@ -2,7 +2,7 @@
 
 export LC_ALL=C
 
-backup_owner="root"
+backup_owner="backup"
 #encryption_key_file="/backups/mysql/encryption_key"
 log_file="extract-progress.log"
 number_of_args="${#}"
@@ -73,7 +73,7 @@ ok_count="$(grep -c 'completed OK' "${log_file}")"
 # informational "completed OK".  If the processing was successful, an
 # additional "completed OK" is printed. Together, this means there should be 2
 # notices per backup file if the process was successful.
-if (( $ok_count !=  2 * $# )); then
+if (( $ok_count !=  $# )); then
     error "It looks like something went wrong. Please check the \"${log_file}\" file for additional information"
 else
     printf "Extraction complete! Backup directories have been extracted to the \"restore\" directory.\n"
