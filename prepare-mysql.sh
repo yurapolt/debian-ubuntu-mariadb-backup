@@ -58,21 +58,21 @@ to verify before continuing.
 
 If everything looks correct, you can apply the restored files.
 
-First, stop MySQL and move or remove the contents of the MySQL data directory:
+First, stop MySQL (on all the nodes if any) and move or remove the contents of the MySQL data directory:
     
-        sudo systemctl stop mysql
-        sudo mv /var/lib/mysql/ /tmp/
+        systemctl stop mariadb.service
+        mv /var/lib/mysql/ /tmp/
     
 Then, recreate the data directory and  copy the backup files:
     
-        sudo mkdir /var/lib/mysql
-        sudo mariabackup --copy-back ${PWD}/$(basename "${full_backup_dir}")
+        mkdir /var/lib/mysql
+        mariabackup --copy-back ${PWD}/$(basename "${full_backup_dir}")
     
 Afterward the files are copied, adjust the permissions and restart the service:
     
-        sudo chown -R mysql:mysql /var/lib/mysql
-        sudo find /var/lib/mysql -type d -exec chmod 750 {} \\;
-        sudo systemctl start mysql
+        chown -R mysql:mysql /var/lib/mysql
+        find /var/lib/mysql -type d -exec chmod 750 {} \\;
+        galera_new_cluster or systemctl start mariadb.service
 EOF
 else
     error "It looks like something went wrong.  Check the \"${log_file}\" file for more information."
