@@ -109,7 +109,7 @@ Our backup user now has the access it needs to the MySQL directory.
 
 ## Creating the Backup Assets
 
-Now that MySQL and system backup users are available, we can begin to set up the configuration files, encryption keys, and other assets that we need to successfully create and secure our backups.
+Now that MySQL and system backup users are available, we can begin to set up the configuration files, and other assets that we need to successfully create and secure our backups.
 
 ### Create a MySQL Configuration File with the Backup Parameters
 
